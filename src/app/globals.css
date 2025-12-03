@@ -1,49 +1,52 @@
 @import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
+/* ============================================
+   TOKTRENDS DESIGN SYSTEM
+   Pixel-perfect replication of design reference
+   ============================================ */
 
 :root {
-  /* Pure white background with crisp black text */
-  --background: 0 0% 100%;
-  --foreground: 0 0% 0%;
+  /* TokTrends Brand Colors */
+  --brand-pink: 339 82% 52%;          /* #e91e63 - Primary brand/CTA */
+  --brand-cyan: 195 80% 66%;          /* #56ccf2 - Gradient accent */
+  --dark-header: 0 0% 10%;            /* #1a1a1a - Header/footer */
+  --light-bg: 0 0% 96%;               /* #f5f5f5 - Body background */
+  --card-white: 0 0% 100%;            /* #ffffff - Card backgrounds */
+  --star-gold: 38 100% 50%;           /* #ffa500 - Rating stars */
+  --text-dark: 0 0% 13%;              /* #222222 - Primary text */
+  --text-muted: 0 0% 40%;             /* #666666 - Secondary text */
 
-  /* Clean white cards with black text */
-  --card: 0 0% 100%;
-  --card-foreground: 0 0% 0%;
+  /* Mapped to shadcn variables for compatibility */
+  --background: 0 0% 96%;              /* Light gray body */
+  --foreground: 0 0% 13%;              /* Dark text */
 
-  /* Popovers with white background */
+  --card: 0 0% 100%;                   /* White cards */
+  --card-foreground: 0 0% 13%;
+
   --popover: 0 0% 100%;
-  --popover-foreground: 0 0% 0%;
+  --popover-foreground: 0 0% 13%;
 
-  /* Primary: Black with white text */
-  --primary: 0 0% 0%;
-  --primary-foreground: 0 0% 100%;
+  --primary: 339 82% 52%;              /* Brand pink */
+  --primary-foreground: 0 0% 100%;     /* White text on pink */
 
-  /* Secondary: Light gray background with black text */
   --secondary: 0 0% 97%;
-  --secondary-foreground: 0 0% 0%;
+  --secondary-foreground: 0 0% 13%;
 
-  /* Muted: Subtle gray with darker text */
-  --muted: 0 0% 96%;
+  --muted: 0 0% 94%;
   --muted-foreground: 0 0% 40%;
 
-  /* Accent: Light gray */
-  --accent: 0 0% 96%;
-  --accent-foreground: 0 0% 0%;
+  --accent: 339 82% 52%;               /* Brand pink for accents */
+  --accent-foreground: 0 0% 100%;
 
-  /* Destructive: Clean red */
   --destructive: 0 70% 50%;
   --destructive-foreground: 0 0% 100%;
 
-  /* Borders: Subtle gray */
-  --border: 0 0% 90%;
+  --border: 0 0% 88%;
   --input: 0 0% 90%;
-  --ring: 0 0% 0%;
+  --ring: 339 82% 52%;                 /* Pink focus ring */
 
-  /* Minimal rounded corners */
-  --radius: 0.375rem;
+  --radius: 0.75rem;                   /* 12px - card border radius */
 
   /* Sidebar: Clean white with black text */
   --sidebar-background: 0 0% 100%;
@@ -168,36 +171,160 @@ All colors MUST be HSL.
   border-color: hsl(var(--border));
 }
 
+/* ============================================
+   GLOBAL RESETS & BASE STYLES
+   ============================================ */
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+}
+
 body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins', 'Inter', system-ui, -apple-system, sans-serif;
   background-color: hsl(var(--background));
   color: hsl(var(--foreground));
-  font-feature-settings: "rlig" 1, "calt" 1;
+  font-size: 0.875rem;           /* 14px base */
+  line-height: 1.6;
+  font-weight: 400;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
 }
 
-/* Minimal, clean typography */
-h1, h2, h3, h4, h5, h6 {
+/* ============================================
+   TYPOGRAPHY SCALE (TokTrends Design)
+   ============================================ */
+
+h1 {
+  font-size: 3rem;               /* 48px - Hero heading */
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  margin: 0 0 1rem 0;
+}
+
+h2 {
+  font-size: 1.875rem;           /* 30px - Page headings */
+  font-weight: 700;
+  line-height: 1.3;
+  letter-spacing: -0.01em;
+  margin: 0 0 1rem 0;
+}
+
+h3 {
+  font-size: 1.25rem;            /* 20px - Section headings */
+  font-weight: 700;
+  line-height: 1.4;
+  text-transform: uppercase;
+  letter-spacing: 0.025em;
+  margin: 0 0 0.75rem 0;
+}
+
+h4 {
+  font-size: 1rem;               /* 16px */
   font-weight: 600;
-  letter-spacing: -0.025em;
-  color: hsl(var(--foreground));
+  line-height: 1.5;
+  margin: 0 0 0.5rem 0;
 }
 
-/* Clean button styles */
+h5, h6 {
+  font-size: 0.875rem;           /* 14px */
+  font-weight: 600;
+  line-height: 1.5;
+  margin: 0 0 0.5rem 0;
+}
+
+p {
+  margin: 0 0 1rem 0;
+  line-height: 1.6;
+}
+
+a {
+  color: hsl(var(--brand-pink));
+  text-decoration: none;
+  transition: opacity 0.2s ease;
+}
+
+a:hover {
+  opacity: 0.8;
+}
+
+/* ============================================
+   BUTTON & FORM DEFAULTS
+   ============================================ */
+
 button {
+  font-family: inherit;
   font-weight: 500;
+  cursor: pointer;
+  border: none;
+  transition: all 0.2s ease;
 }
 
-/* Subtle shadows for depth */
+input, textarea, select {
+  font-family: inherit;
+  font-size: 0.875rem;
+  border: 1px solid hsl(var(--border));
+  border-radius: 0.5rem;
+  padding: 0.5rem 0.75rem;
+  background: hsl(var(--card));
+  color: hsl(var(--foreground));
+  transition: border-color 0.2s ease;
+}
+
+input:focus, textarea:focus, select:focus {
+  outline: none;
+  border-color: hsl(var(--brand-pink));
+  box-shadow: 0 0 0 3px hsl(var(--brand-pink) / 0.1);
+}
+
+/* ============================================
+   TOKTRENDS COMPONENT STYLES
+   ============================================ */
+
+/* Card shadows matching design reference */
 .shadow-sm {
   box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
 }
 
 .shadow {
-  box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+  box-shadow: 0 2px 8px 0 rgb(0 0 0 / 0.1);
 }
 
 .shadow-md {
-  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  box-shadow: 0 4px 12px 0 rgb(0 0 0 / 0.12);
+}
+
+/* HOT badge styling */
+.hot-badge {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  background: hsl(var(--brand-pink));
+  color: white;
+  font-size: 0.6875rem;          /* 11px */
+  font-weight: 600;
+  padding: 0.25rem 0.75rem;
+  border-radius: 1.25rem;         /* 20px - pill shape */
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  z-index: 10;
+}
+
+/* Star rating styling */
+.star-rating {
+  display: inline-flex;
+  gap: 0.125rem;
+  color: hsl(var(--star-gold));
+}
+
+/* Hero gradient background */
+.hero-gradient {
+  background: linear-gradient(135deg, hsl(var(--brand-cyan)) 0%, hsl(var(--brand-pink)) 100%);
 }
