@@ -22,7 +22,11 @@ export const metadata: Metadata = {
   title: "TokTrends - Viral TikTok Product Reviews",
   description: "Quick, honest reviews of trending TikTok products. Discover what's viral and worth buying.",
   icons: {
-    icon: "/tokttrends-logo.png",
+    icon: [
+      { url: "/favicon.svg", type: "image/svg+xml" },
+      { url: "/tokttrends-logo.png", sizes: "512x512", type: "image/png" }
+    ],
+    apple: "/tokttrends-logo.png",
   },
   openGraph: {
     title: "TokTrends - Viral TikTok Product Reviews",

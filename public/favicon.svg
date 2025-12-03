@@ -1,0 +1,48 @@
+<svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <filter id="icon-neon-glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <linearGradient id="icon-play-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#56ccf2" />
+      <stop offset="100%" stop-color="#e91e63" />
+    </linearGradient>
+  </defs>
+
+  <!-- Background circle -->
+  <circle cx="20" cy="20" r="18" fill="#1a1a1a" />
+
+  <!-- Neon Play Button -->
+  <g transform="translate(20, 20)">
+    <!-- Outer glow -->
+    <path
+      d="M-5 -8 L-5 8 L8 0 Z"
+      stroke="url(#icon-play-gradient)"
+      stroke-width="3"
+      fill="none"
+      filter="url(#icon-neon-glow)"
+      opacity="0.6"
+    />
+    <!-- Main play button -->
+    <path
+      d="M-5 -8 L-5 8 L8 0 Z"
+      stroke="url(#icon-play-gradient)"
+      stroke-width="2"
+      fill="none"
+    />
+    <!-- Motion lines -->
+    <line x1="-12" y1="-5" x2="-8" y2="-5" stroke="#56ccf2" stroke-width="2" opacity="0.8"/>
+    <line x1="-12" y1="0" x2="-7" y2="0" stroke="#e91e63" stroke-width="2" opacity="0.8"/>
+    <line x1="-12" y1="5" x2="-8" y2="5" stroke="#56ccf2" stroke-width="2" opacity="0.8"/>
+  </g>
+
+  <!-- Star accents around the circle -->
+  <circle cx="20" cy="5" r="1.5" fill="#e91e63" opacity="0.8" />
+  <circle cx="35" cy="20" r="1.5" fill="#56ccf2" opacity="0.8" />
+  <circle cx="20" cy="35" r="1.5" fill="#e91e63" opacity="0.8" />
+  <circle cx="5" cy="20" r="1.5" fill="#56ccf2" opacity="0.8" />
+</svg>

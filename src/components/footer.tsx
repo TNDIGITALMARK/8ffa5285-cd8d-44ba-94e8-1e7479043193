@@ -1,6 +1,6 @@
 import Link from "next/link";
-import Image from "next/image";
 import { Instagram, Youtube } from "lucide-react";
+import { Logo } from "./logo";
 
 export function Footer() {
   return (
@@ -8,23 +8,7 @@ export function Footer() {
       <div className="container mx-auto px-6 py-12">
         {/* Logo Section */}
         <div className="mb-8">
-          <Image
-            src="/tokttrends-logo.png"
-            alt="TokTrends"
-            width={200}
-            height={50}
-            className="h-10 w-auto"
-          />
-          {/* Decorative star rating accent matching logo */}
-          <div className="flex gap-1 mt-2 ml-1">
-            {[...Array(7)].map((_, i) => (
-              <div
-                key={i}
-                className="w-1.5 h-1.5 rounded-full"
-                style={{ backgroundColor: 'hsl(var(--brand-pink))' }}
-              />
-            ))}
-          </div>
+          <Logo variant="dark" className="h-10 w-auto" showText={true} />
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
