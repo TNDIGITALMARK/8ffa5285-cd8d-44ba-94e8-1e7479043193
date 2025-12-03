@@ -2,6 +2,7 @@ import { Header } from "@/components/header";
 import { Footer } from "@/components/footer";
 import { ProductCard } from "@/components/product-card";
 import { ReviewCard } from "@/components/review-card";
+import { NeonPlayIcon } from "@/components/neon-play-icon";
 
 // Mock data for featured products
 const featuredProducts = [
@@ -99,13 +100,25 @@ export default function HomePage() {
 
       <main className="flex-1">
         {/* Hero Section */}
-        <section className="hero-gradient py-16 px-6">
-          <div className="container mx-auto">
+        <section className="hero-gradient py-16 px-6 relative overflow-hidden">
+          {/* Decorative neon play icons */}
+          <div className="absolute top-10 right-10 opacity-20">
+            <NeonPlayIcon className="w-32 h-32" />
+          </div>
+          <div className="absolute bottom-10 left-10 opacity-15">
+            <NeonPlayIcon className="w-24 h-24" />
+          </div>
+
+          <div className="container mx-auto relative z-10">
             <div className="max-w-4xl">
-              <h1 className="text-white mb-4">
-                DISCOVER WHAT&apos;S VIRAL.<br />
-                SHOP THE TRENDS
-              </h1>
+              {/* Main heading with neon icon accent */}
+              <div className="flex items-center gap-4 mb-4">
+                <NeonPlayIcon className="w-12 h-12 flex-shrink-0" />
+                <h1 className="text-white">
+                  DISCOVER WHAT&apos;S VIRAL.<br />
+                  SHOP THE TRENDS
+                </h1>
+              </div>
               <p className="text-white text-lg mb-8 font-medium max-w-2xl">
                 Quick, honest reviews of trending TikTok products. Save time and money with our unbiased product insights.
               </p>

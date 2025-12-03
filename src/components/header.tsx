@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { Instagram, Youtube } from "lucide-react";
 
 export function Header() {
@@ -9,9 +10,14 @@ export function Header() {
       <div className="container mx-auto px-6 h-[60px] flex items-center justify-between">
         {/* Logo */}
         <Link href="/" className="flex items-center">
-          <span className="text-xl font-bold" style={{ color: 'hsl(var(--brand-pink))' }}>
-            TokTrends
-          </span>
+          <Image
+            src="/tokttrends-logo.png"
+            alt="TokTrends"
+            width={160}
+            height={40}
+            className="h-8 w-auto"
+            priority
+          />
         </Link>
 
         {/* Navigation */}
