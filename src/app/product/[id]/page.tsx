@@ -141,7 +141,7 @@ export default function ProductPage({ params }: { params: { id: string } }) {
                   )}
                   {[...Array(emptyStars)].map((_, i) => (
                     <Star key={`empty-${i}`} className="w-5 h-5" fill="none" stroke="currentColor" />
-                  )}
+                  ))}
                 </div>
                 <span className="text-lg font-semibold">{product.rating}/5</span>
                 <span className="text-sm" style={{ color: 'hsl(var(--text-muted))' }}>
